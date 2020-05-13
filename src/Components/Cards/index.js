@@ -19,7 +19,7 @@ import {
 const SIZE = '26PX';
 
 const Cards = ({ name, image, status, species, gender, location }) => (
-  <Col sm="3">
+  <Col md="3">
     <Cardd>
       <CardBody>
         <CardTitlee>{name}</CardTitlee>

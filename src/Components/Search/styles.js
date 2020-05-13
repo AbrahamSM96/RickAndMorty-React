@@ -36,10 +36,12 @@ export const SpanIcon = styled.span`
   height: 20px;
   margin-bottom: 5px;
   margin-right: 5px;
+  margin-left: 5px;
 `;
 
 export const ImgIcon = styled.img`
   width: 20px;
   height: 20px;
   color: #ffffff;
+  margin-left: 5px;
 `;
