@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'shlop_rg';
+  src: url('../assets/fonts/shlop/shlop_rg.ttf');
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('../assets/background-stars.jpg');
+  background-color: black !important;
+  color: #ffffff !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+input:focus {
+  outline: none !important;
+}
