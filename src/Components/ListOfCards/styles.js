@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Input } from 'reactstrap';
-
+import { Input, Button } from 'reactstrap';
 export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -44,6 +43,7 @@ export const SpanIcon = styled.span`
   height: 20px;
   margin-bottom: 5px;
   margin-right: 5px;
+  margin-left: 5px;
 `;
 
 export const ImgIcon = styled.img`
@@ -54,5 +54,15 @@ export const ImgIcon = styled.img`
 
 export const ContainerOutInput = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+`;
+
+export const Buttonn = styled(Button)`
+  border: 1px solid #47ccde;
+  border-radius: 20px;
+  color: #47ccde;
+  &:hover {
+    background-color: rgba(39, 175, 197, 1);
+    color: #ffffff;
+  }
 `;

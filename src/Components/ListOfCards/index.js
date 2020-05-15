@@ -1,20 +1,24 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import Loader from 'react-loaders';
-import { Container, Row, Button, Col, FormGroup, Form } from 'reactstrap';
-import { LoaderContainer, Inputt, ContainerInput, SpanIcon, ImgIcon, ContainerOutInput } from './styles';
+import { Paginate } from '../Paginate';
+import { Container, Row, Col, FormGroup, Form } from 'reactstrap';
+import { LoaderContainer, Inputt, ContainerInput, SpanIcon, ImgIcon, ContainerOutInput, Buttonn } from './styles';
+import ReactPaginate from 'react-paginate';
 import Lupa from '../../assets/icons/lupa.svg';
-
-import { useDataCharacters } from '../../hooks/useInitialState';
+import { useDataCharacters } from '../../hooks/useDataCharacters';
 import Cards from '../Cards';
+import './styles.css';
 
 export const ListOfCards = () => {
-  const { characters, loading, error, fetchCharacters, setLoading, setError, nextPage, setNextPage } = useDataCharacters();
+  const { characters, loading, error, setLoading, setError } = useDataCharacters();
+  let { perpage, setPerpage } = useDataCharacters();
 
   const [filteredData, setFilteredData] = useState({
     data: {
       results: characters.data.results,
     },
   });
+  // const [pageCount, setPageCount] = useState(0);
   const [query, setQuery] = useState('');
   // function useSearchCharacters(characters) {
 
@@ -31,10 +35,9 @@ export const ListOfCards = () => {
     setLoading(true);
     setError(null);
     try {
-      const API = `https://rickandmortyapi.com/api/character/?name=${query}`;
+      const API = `https://rickandmortyapi.com/api/character/?page=${perpage}`;
       const response = await fetch(API);
       const data = await response.json();
-      console.log('dataaaa', data);
       setLoading(false);
       setError(null);
       setFilteredData({
@@ -43,13 +46,13 @@ export const ListOfCards = () => {
           results: [].concat(data.results),
         },
       });
-      setNextPage(nextPage + 1);
     } catch (error) {
       setLoading(false);
       setError(error);
     }
   };
   useEffect(() => {
+    // setPageCount: Math.ceil(filteredData.data.results.length / perpage);
     fetchApiFiltered();
   }, []);
   const handleSubmit = (e) => {
@@ -90,9 +93,9 @@ export const ListOfCards = () => {
                       value={query}
                     />
                   </ContainerInput>
-                  <Button className="ml-3" outline color="success" size="md" onSubmit={(e) => handleSubmit(e)}>
+                  <Buttonn className="ml-3" outline size="md" onSubmit={(e) => handleSubmit(e)}>
                     Search
-                  </Button>
+                  </Buttonn>
                 </ContainerOutInput>
               </FormGroup>
             </Form>
@@ -103,7 +106,6 @@ export const ListOfCards = () => {
           {filteredData.data.results.map((charac) => (
             <Cards key={charac.id} {...charac} />
           ))}
-          {console.log('filteeeer', filteredData)}
         </Row>
 
         {loading && (
@@ -120,6 +122,19 @@ export const ListOfCards = () => {
             Load More
           </Button>
         )} */}
+        {/* <ReactPaginate
+          previousLabel={'prev'}
+          nextLabel={'nextPage'}
+          breakLabel={'...'}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={10}
+          breakClassName={'break-me'}
+          pageCount={pages.data.info.pages}
+          onPageChange={handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'}
+        /> */}
       </Container>
     );
   }
