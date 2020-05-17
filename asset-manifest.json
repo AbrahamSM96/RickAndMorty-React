@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/AbrahamSM96/RickAndMorty-React/static/css/main.86ca4b3d.chunk.css",
+    "main.js": "/AbrahamSM96/RickAndMorty-React/static/js/main.06cbd262.chunk.js",
+    "main.js.map": "/AbrahamSM96/RickAndMorty-React/static/js/main.06cbd262.chunk.js.map",
+    "runtime-main.js": "/AbrahamSM96/RickAndMorty-React/static/js/runtime-main.0b21077e.js",
+    "runtime-main.js.map": "/AbrahamSM96/RickAndMorty-React/static/js/runtime-main.0b21077e.js.map",
+    "static/css/2.4593731b.chunk.css": "/AbrahamSM96/RickAndMorty-React/static/css/2.4593731b.chunk.css",
+    "static/js/2.7c107e76.chunk.js": "/AbrahamSM96/RickAndMorty-React/static/js/2.7c107e76.chunk.js",
+    "static/js/2.7c107e76.chunk.js.map": "/AbrahamSM96/RickAndMorty-React/static/js/2.7c107e76.chunk.js.map",
+    "index.html": "/AbrahamSM96/RickAndMorty-React/index.html",
+    "precache-manifest.75e62921dc245e24e743e66e27b680b6.js": "/AbrahamSM96/RickAndMorty-React/precache-manifest.75e62921dc245e24e743e66e27b680b6.js",
+    "service-worker.js": "/AbrahamSM96/RickAndMorty-React/service-worker.js",
+    "static/css/2.4593731b.chunk.css.map": "/AbrahamSM96/RickAndMorty-React/static/css/2.4593731b.chunk.css.map",
+    "static/css/main.86ca4b3d.chunk.css.map": "/AbrahamSM96/RickAndMorty-React/static/css/main.86ca4b3d.chunk.css.map",
+    "static/js/2.7c107e76.chunk.js.LICENSE.txt": "/AbrahamSM96/RickAndMorty-React/static/js/2.7c107e76.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/AbrahamSM96/RickAndMorty-React/static/media/shlop_rg.91db29e9.ttf",
+    "static/media/lupa.svg": "/AbrahamSM96/RickAndMorty-React/static/media/lupa.baf45aff.svg",
+    "static/media/rick-and-morty-family-png-5-transparent.png": "/AbrahamSM96/RickAndMorty-React/static/media/rick-and-morty-family-png-5-transparent.ce98be63.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0b21077e.js",
+    "static/css/2.4593731b.chunk.css",
+    "static/js/2.7c107e76.chunk.js",
+    "static/css/main.86ca4b3d.chunk.css",
+    "static/js/main.06cbd262.chunk.js"
+  ]
+}
