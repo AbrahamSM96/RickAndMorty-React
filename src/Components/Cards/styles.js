@@ -2,8 +2,11 @@ import styled from 'styled-components';
 import { Card, CardTitle, CardText, CardBody } from 'reactstrap';
 import { IoIosCheckmarkCircle, IoIosCloseCircle, IoMdAlert } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import { fadeIn } from '../../styles/animation';
 
 export const Cardd = styled(Card)`
+  ${fadeIn()};
+
   margin: 10px 0px;
   background: radial-gradient(circle, rgba(39, 175, 197, 1) 25%, rgba(151, 207, 107, 1) 80%);
   border-radius: 20px;

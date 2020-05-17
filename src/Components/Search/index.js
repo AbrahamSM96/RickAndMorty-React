@@ -23,8 +23,6 @@ const Search = () => {
 
   const handleChange = (e) => {
     form.form.search = e.target.value;
-    console.log(form);
-    console.log('query', e.target.value);
   };
   return (
     <Row>

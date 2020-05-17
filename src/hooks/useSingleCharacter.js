@@ -11,7 +11,6 @@ export function useSingleCharacter(id) {
       const API = `https://rickandmortyapi.com/api/character/${id}`;
       const response = await fetch(API);
       const data = await response.json();
-      console.log(data, 'usesingle');
       setSingleCharacter({
         data: data,
       });

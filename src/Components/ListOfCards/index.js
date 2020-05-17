@@ -5,7 +5,7 @@ import { Container, Row, Col, FormGroup, Form } from 'reactstrap';
 import { LoaderContainer, Inputt, ContainerInput, SpanIcon, ImgIcon, ContainerOutInput, Buttonn } from './styles';
 import Lupa from '../../assets/icons/lupa.svg';
 import { useSearchCharacter } from '../../hooks/useSearchCharacter';
-import Cards from '../Cards';
+import { Cards } from '../Cards';
 
 const ListOfCards = ({ pageParams }) => {
   const page = Number(pageParams || 1);

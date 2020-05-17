@@ -1,6 +1,7 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Input, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+
 export const LoaderContainer = styled.div`
   display: flex;
   justify-content: center;

@@ -19,7 +19,6 @@ export function useSearchCharacter(page) {
       setError(null);
       const response = await fetch(API);
       const data = await response.json();
-      console.log(data);
       setFilterData({
         data: {
           info: data.info,
