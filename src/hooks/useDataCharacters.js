@@ -8,7 +8,7 @@ export function useDataCharacters() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const [pages, setPages] = useState({ data: { info: { pages: [] } } });
   const fetchCharacters = async () => {
     setLoading(true);
     setError(null);
@@ -19,7 +19,12 @@ export function useDataCharacters() {
       setCharacters({
         data: {
           info: data.info,
-          results: [].concat(characters),
+          results: [].concat(data.results),
+        },
+      });
+      setPages({
+        data: {
+          info: data.info.pages,
         },
       });
       setLoading(false);
@@ -36,9 +41,9 @@ export function useDataCharacters() {
     characters,
     setCharacters,
     loading,
-    setLoading,
     error,
-    setError,
     fetchCharacters,
+    pages,
+    setPages,
   };
 }

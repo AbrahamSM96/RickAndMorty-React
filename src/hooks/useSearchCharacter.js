@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export function useSearchCharacter() {
+export function useSearchCharacter(page) {
   const [query, setQuery] = useState('');
   const [filterData, setFilterData] = useState({
     data: {
@@ -8,9 +8,10 @@ export function useSearchCharacter() {
       results: [],
     },
   });
+  const [pages, setPages] = useState({ data: { info: { pages: [] } } });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const API = `https://rickandmortyapi.com/api/character/?name=${query}`;
+  const API = `https://rickandmortyapi.com/api/character/?page=${page}&name=${query}`;
 
   const fetchSearchCharacter = async () => {
     try {
@@ -18,10 +19,16 @@ export function useSearchCharacter() {
       setError(null);
       const response = await fetch(API);
       const data = await response.json();
+      console.log(data);
       setFilterData({
         data: {
           info: data.info,
           results: data.results,
+        },
+      });
+      setPages({
+        data: {
+          info: data.info.pages,
         },
       });
       setLoading(false);
@@ -32,6 +39,6 @@ export function useSearchCharacter() {
   };
   useEffect(() => {
     fetchSearchCharacter();
-  });
-  return { query, setFilterData, error, loading };
+  }, []);
+  return { query, setQuery, error, loading, filterData, fetchSearchCharacter };
 }

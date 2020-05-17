@@ -1,12 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loaders';
-import { H1, Roww, Containerr, Img, ContainerLogo, Coll, ContainerButton, Buttonn, LoaderContainer } from './styles';
+import {
+  H1,
+  Roww,
+  Containerr,
+  Img,
+  ContainerLogo,
+  Coll,
+  ContainerButton,
+  Buttonn,
+  LoaderContainer,
+  IoIosCheckmarkCirclee,
+  IoIosCloseCirclee,
+  IoMdAlertt,
+  ContainerStatus,
+  DivGreen,
+  DivRed,
+  DivYellow,
+  RowButton,
+} from './styles';
 import { Row } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { useSingleCharacter } from '../../hooks/useSingleCharacter';
 
-import Logo from '../Logo';
+import { Logo } from '../Logo';
+const SIZE = '26PX';
 
 const CardWithQuery = (props) => {
   const { id } = props;
@@ -18,11 +37,7 @@ const CardWithQuery = (props) => {
   } else {
     return (
       <>
-        <ContainerLogo>
-          <Link to="/">
-            <Logo />
-          </Link>
-        </ContainerLogo>
+        <Logo />
         <Containerr>
           <Roww md="2">
             <Coll>
@@ -32,18 +47,41 @@ const CardWithQuery = (props) => {
             </Coll>
             <Coll>
               <H1>{singleCharacter.data.name}</H1>
-              <h3>{singleCharacter.data.status}</h3>
+              {singleCharacter.data.status === 'Alive' && (
+                <ContainerStatus>
+                  <DivGreen>
+                    <IoIosCheckmarkCirclee size={SIZE} />
+                  </DivGreen>
+                  <h3>{singleCharacter.data.status}</h3>
+                </ContainerStatus>
+              )}
+              {singleCharacter.data.status === 'Dead' && (
+                <ContainerStatus>
+                  <DivRed>
+                    <IoIosCloseCirclee size={SIZE} />
+                  </DivRed>
+                  <h3>{singleCharacter.data.status}</h3>
+                </ContainerStatus>
+              )}
+              {singleCharacter.data.status === 'unknown' && (
+                <ContainerStatus>
+                  <DivYellow>
+                    <IoMdAlertt size={SIZE} />
+                  </DivYellow>
+                  <h3>{singleCharacter.data.status}</h3>
+                </ContainerStatus>
+              )}
               <h3>{singleCharacter.data.species}</h3>
               <h3>{singleCharacter.data.gender}</h3>
             </Coll>
           </Roww>
-          <Row>
+          <RowButton>
             <ContainerButton>
               <Buttonn className="justify-content-md-start" outline size="md" onClick={() => props.history.go(-1)}>
                 Return
               </Buttonn>
             </ContainerButton>
-          </Row>
+          </RowButton>
         </Containerr>
         {loading && (
           <LoaderContainer>
