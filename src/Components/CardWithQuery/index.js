@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import Loader from 'react-loaders';
 import {
   H1,
@@ -20,7 +19,6 @@ import {
   DivYellow,
   RowButton,
 } from './styles';
-import { Row } from 'reactstrap';
 import { withRouter } from 'react-router';
 import { useSingleCharacter } from '../../hooks/useSingleCharacter';
 

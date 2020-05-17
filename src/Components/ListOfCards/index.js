@@ -7,7 +7,7 @@ import Lupa from '../../assets/icons/lupa.svg';
 import { useSearchCharacter } from '../../hooks/useSearchCharacter';
 import Cards from '../Cards';
 
-export const ListOfCards = ({ pageParams }) => {
+const ListOfCards = ({ pageParams }) => {
   const page = Number(pageParams || 1);
   const { filterData, loading, error, fetchSearchCharacter, setQuery, query } = useSearchCharacter(page);
 
@@ -70,3 +70,5 @@ export const ListOfCards = ({ pageParams }) => {
     );
   }
 };
+
+export const ListOfCardsComponent = React.memo(ListOfCards);

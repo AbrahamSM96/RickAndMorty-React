@@ -12,6 +12,7 @@ export function useDataCharacters() {
   const fetchCharacters = async () => {
     setLoading(true);
     setError(null);
+
     try {
       const API = `https://rickandmortyapi.com/api/character`;
       const response = await fetch(API);

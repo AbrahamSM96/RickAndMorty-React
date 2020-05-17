@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'reactstrap';
 import { Header } from '../Components/Header';
-import { ListOfCards } from '../Components/ListOfCards';
+import { ListOfCardsComponent } from '../Components/ListOfCards';
 
 const Home = (props) => {
   const { page } = props.match.params;
@@ -10,7 +10,7 @@ const Home = (props) => {
     <>
       <Header />
       <Container>
-        <ListOfCards pageParams={page} />
+        <ListOfCardsComponent pageParams={page} />
       </Container>
     </>
   );

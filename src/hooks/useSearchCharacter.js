@@ -40,5 +40,5 @@ export function useSearchCharacter(page) {
   useEffect(() => {
     fetchSearchCharacter();
   }, []);
-  return { query, setQuery, error, loading, filterData, fetchSearchCharacter };
+  return { query, setQuery, error, loading, filterData, fetchSearchCharacter, pages };
 }
