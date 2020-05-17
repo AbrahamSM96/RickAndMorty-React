@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { Card, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle, CardText, CardBody } from 'reactstrap';
 import { IoIosCheckmarkCircle, IoIosCloseCircle, IoMdAlert } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 export const Cardd = styled(Card)`
   margin: 10px 0px;
@@ -8,6 +9,10 @@ export const Cardd = styled(Card)`
   border-radius: 20px;
   /* background-color: #87b366; */
   font-family: 'Montserrat', sans-serif;
+  &:hover {
+    border: 3px solid rgba(39, 175, 197, 1);
+    color: #ffffff !important;
+  }
 `;
 export const CardTitlee = styled(CardTitle)`
   font-family: 'shlop_rg';
@@ -15,6 +20,14 @@ export const CardTitlee = styled(CardTitle)`
   text-align: center;
   color: rgba(39, 175, 197, 1);
   /* -webkit-text-stroke: 2px rgba(151, 207, 107, 1); */
+`;
+
+export const CardBodyy = styled(CardBody)`
+  @media (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const CardTextt = styled(CardText)`
@@ -58,4 +71,11 @@ export const IoMdAlertt = styled(IoMdAlert)`
 export const Figure = styled.figure`
   max-width: 200px;
   margin: 0 auto;
+`;
+
+export const Linkk = styled(Link)`
+  text-decoration: none !important;
+  &:hover {
+    color: #ffffff !important;
+  }
 `;

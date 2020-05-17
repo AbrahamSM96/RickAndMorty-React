@@ -1,69 +1,24 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import Loader from 'react-loaders';
-import { Container, Row, Button, Col, FormGroup, Form } from 'reactstrap';
-import { LoaderContainer, Inputt, ContainerInput, SpanIcon, ImgIcon, ContainerOutInput } from './styles';
+import { Paginate } from '../Paginate';
+import { Container, Row, Col, FormGroup, Form } from 'reactstrap';
+import { LoaderContainer, Inputt, ContainerInput, SpanIcon, ImgIcon, ContainerOutInput, Buttonn } from './styles';
 import Lupa from '../../assets/icons/lupa.svg';
-
-import { useDataCharacters } from '../../hooks/useInitialState';
+import { useSearchCharacter } from '../../hooks/useSearchCharacter';
 import Cards from '../Cards';
 
-export const ListOfCards = () => {
-  const { characters, loading, error, fetchCharacters, setLoading, setError, nextPage, setNextPage } = useDataCharacters();
+export const ListOfCards = ({ pageParams }) => {
+  const page = Number(pageParams || 1);
+  const { filterData, loading, error, fetchSearchCharacter, setQuery, query } = useSearchCharacter(page);
 
-  const [filteredData, setFilteredData] = useState({
-    data: {
-      results: characters.data.results,
-    },
-  });
-  const [query, setQuery] = useState('');
-  // function useSearchCharacters(characters) {
-
-  //   useMemo(() => {
-  //     const result = characters.filter((char) => {
-  //       return `${char.name}`.toLowerCase().includes(query.toLowerCase());
-  //     });
-  //     setFilteredData(result);
-  //   }, [characters, query]);
-  //   return { query, setQuery, filteredData };
-  // }
-  // const { query, setQuery, filteredData } = useSearchCharacters(characters);
-  const fetchApiFiltered = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const API = `https://rickandmortyapi.com/api/character/?name=${query}`;
-      const response = await fetch(API);
-      const data = await response.json();
-      console.log('dataaaa', data);
-      setLoading(false);
-      setError(null);
-      setFilteredData({
-        data: {
-          info: data.info,
-          results: [].concat(data.results),
-        },
-      });
-      setNextPage(nextPage + 1);
-    } catch (error) {
-      setLoading(false);
-      setError(error);
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetchSearchCharacter();
   };
+
   useEffect(() => {
-    fetchApiFiltered();
-  }, []);
-  const handleSubmit = (e) => {
-    //   e.preventDefault();
-    //   const charactersFilter = characters.data.results.filter((character) => {
-    //     return character.name.toLowerCase().includes(query.toLowerCase());
-    //   });
-    //   setCharacters({
-    //     ...characters,
-    //     listFilter: { results: charactersFilter },
-    //   });
-    e.preventDefault();
-    fetchApiFiltered();
-  };
+    fetchSearchCharacter();
+  }, [pageParams, page]);
 
   if (error) {
     return `Error: ${error.message}`;
@@ -72,7 +27,7 @@ export const ListOfCards = () => {
       <Container>
         <Row>
           <Col>
-            <Form onSubmit={(e) => handleSubmit(e)}>
+            <Form onSubmit={(event) => handleSubmit(event)}>
               <FormGroup>
                 <ContainerOutInput>
                   <ContainerInput>
@@ -86,13 +41,13 @@ export const ListOfCards = () => {
                       onChange={(e) => {
                         setQuery(e.target.value);
                       }}
-                      name="search"
+                      name="name"
                       value={query}
                     />
                   </ContainerInput>
-                  <Button className="ml-3" outline color="success" size="md" onSubmit={(e) => handleSubmit(e)}>
+                  <Buttonn className="ml-3" outline size="md" onSubmit={(event) => handleSubmit(event)}>
                     Search
-                  </Button>
+                  </Buttonn>
                 </ContainerOutInput>
               </FormGroup>
             </Form>
@@ -100,10 +55,9 @@ export const ListOfCards = () => {
         </Row>
 
         <Row>
-          {filteredData.data.results.map((charac) => (
+          {filterData.data.results.map((charac) => (
             <Cards key={charac.id} {...charac} />
           ))}
-          {console.log('filteeeer', filteredData)}
         </Row>
 
         {loading && (
@@ -111,15 +65,7 @@ export const ListOfCards = () => {
             <Loader type="pacman" />
           </LoaderContainer>
         )}
-        {/* {!loading && filteredData ? (
-          <Button outline color="success" size="lg" block onClick={() => fetchApiFiltered()}>
-            Load More
-          </Button>
-        ) : (
-          <Button outline color="success" size="lg" block onClick={() => fetchCharacters()}>
-            Load More
-          </Button>
-        )} */}
+        <Paginate pageParams={pageParams} />
       </Container>
     );
   }

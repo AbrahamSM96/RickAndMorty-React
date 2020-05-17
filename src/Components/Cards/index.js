@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { CardText, Col, CardBody } from 'reactstrap';
 import {
   Cardd,
@@ -14,20 +13,25 @@ import {
   IoMdAlertt,
   CardTextt,
   Figure,
+  Linkk,
+  CardBodyy,
 } from './styles';
 
 const SIZE = '26PX';
 
-const Cards = ({ name, image, status, species, gender, location }) => (
+const Cards = ({ id, name, image, status, species, gender }) => (
   <Col md="3">
     <Cardd>
       <CardBody>
         <CardTitlee>{name}</CardTitlee>
       </CardBody>
-      <Figure>
-        <Img width="100%" src={image} alt={name} />
-      </Figure>
-      <CardBody>
+      <Linkk to={`/character/${id}`}>
+        <Figure>
+          <Img width="100%" src={image} alt={name} />
+        </Figure>
+      </Linkk>
+
+      <CardBodyy>
         {status === 'Alive' && (
           <ContainerStatus>
             <DivGreen>
@@ -55,8 +59,7 @@ const Cards = ({ name, image, status, species, gender, location }) => (
 
         <CardTextt>Specie: {species}</CardTextt>
         <CardTextt>Gender :{gender}</CardTextt>
-        <CardTextt>Location: {location.name}</CardTextt>
-      </CardBody>
+      </CardBodyy>
     </Cardd>
   </Col>
 );

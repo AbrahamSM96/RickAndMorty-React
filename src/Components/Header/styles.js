@@ -11,6 +11,9 @@ export const Figure = styled.figure`
   align-items: center;
   width: 32%;
   margin: 50px auto;
+  @media (max-width: 425px) {
+    width: 75%;
+  }
 `;
 
 export const Img = styled.img`

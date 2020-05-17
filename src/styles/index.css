@@ -20,3 +20,7 @@ code {
 input:focus {
   outline: none !important;
 }
+
+ul {
+  list-style: none;
+}
