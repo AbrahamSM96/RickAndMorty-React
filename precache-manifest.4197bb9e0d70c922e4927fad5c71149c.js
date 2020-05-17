@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "96946083624a2e1a6ec0bc45cecbbeb3",
+    "revision": "1064b137bd3d1b0c4126783336d09e84",
     "url": "/AbrahamSM96/RickAndMorty-React/index.html"
   },
   {
-    "revision": "758c8ffb8c6078c03c1c",
+    "revision": "66c4e5b4f008cb264ecc",
     "url": "/AbrahamSM96/RickAndMorty-React/static/css/2.4593731b.chunk.css"
   },
   {
-    "revision": "def744f0a8202e511e11",
+    "revision": "d82206c151e501b85e17",
     "url": "/AbrahamSM96/RickAndMorty-React/static/css/main.86ca4b3d.chunk.css"
   },
   {
-    "revision": "758c8ffb8c6078c03c1c",
-    "url": "/AbrahamSM96/RickAndMorty-React/static/js/2.7c107e76.chunk.js"
+    "revision": "66c4e5b4f008cb264ecc",
+    "url": "/AbrahamSM96/RickAndMorty-React/static/js/2.102a34c3.chunk.js"
   },
   {
     "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/AbrahamSM96/RickAndMorty-React/static/js/2.7c107e76.chunk.js.LICENSE.txt"
+    "url": "/AbrahamSM96/RickAndMorty-React/static/js/2.102a34c3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "def744f0a8202e511e11",
-    "url": "/AbrahamSM96/RickAndMorty-React/static/js/main.06cbd262.chunk.js"
+    "revision": "d82206c151e501b85e17",
+    "url": "/AbrahamSM96/RickAndMorty-React/static/js/main.7809d4eb.chunk.js"
   },
   {
     "revision": "fb575d7aeb2a64770c97",
